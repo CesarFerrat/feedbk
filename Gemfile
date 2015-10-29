@@ -68,3 +68,6 @@ gem 'rails_config'
 gem 'delayed_job_active_record'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
+
+gem 'cancancan'
+gem 'rolify'
