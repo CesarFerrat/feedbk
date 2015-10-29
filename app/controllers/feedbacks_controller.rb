@@ -29,6 +29,7 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @feedback = Feedback.new(feedback_params)
+    @feedback.user = current_user
 
     respond_to do |format|
       if @feedback.save
