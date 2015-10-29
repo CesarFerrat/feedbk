@@ -1,0 +1,15 @@
+<%= simple_form_for(@feedback) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :rate %>
+    <%= f.input :comment %>
+    <%= f.association :goal %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
