@@ -3,6 +3,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    if @user.save
+      @user.add_role params[:role]
+    end
   end
 
   def new

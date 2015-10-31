@@ -1,10 +1,21 @@
-<div class="container">
- <div class="col-lg-8">
-  <h2>Set 3 goals, give feedback and grow your team.</h2><br>
+<% if defined?(Devise) %>
+   <% if user_signed_in? %>
+      <h2>Hello thats your personal dashboard</h2>
 
-  <a href="signup" class="btn btn-default" role="button">CREATE A NEW TEAM</a><br>
-   <br>
-   <br>
-  <a href="signup" class="btn btn-primary" role="button">JOIN A TEAM</a>
-  </div>
-</div>
+   <% else %>
+      <div class="container">
+       <div class="col-lg-8">
+          <h2>Set 3 goals, Give Feedback and Grow your Team.</h2><br>
+          <h3>New Here? You Are:</h3>
+          <br>
+          <a href="signup/employee" class="btn btn-default" role="button">Employee</a>
+          <br>
+          <br>
+          <a href="signup/manager" class="btn btn-primary" role="button">Manager</a>
+          <br>
+          <br>
+          <a href="signup/company_leader" class="btn btn-info" role="button">Company Leader</a>
+       </div>
+      </div>
+   <% end %>
+<% end %>
