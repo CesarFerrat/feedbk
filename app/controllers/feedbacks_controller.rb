@@ -1,10 +1,4 @@
 class FeedbacksController < ApplicationController
-
-  #->Prelang (scaffolding:rails/scope_to_user)
-  before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
-
-  before_action :set_feedback, only: [:show, :edit, :update, :destroy]
-
   # GET /feedbacks
   # GET /feedbacks.json
   def index
@@ -67,10 +61,6 @@ class FeedbacksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feedback
-      @feedback = Feedback.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params

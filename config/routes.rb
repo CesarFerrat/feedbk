@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  resources :goals
+  resources :users do 
+    resources :goals do 
+      resources :feedbacks 
+    end 
+  end
 
-  resources :feedbacks
+
+get   "/users/:user_id/teams"   => "teams#index"
+get   "/users/:user_id/teams/:team_id/add_member"   => "teams#add_member"
+
+  resources :users do
+    resources :teams
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -13,6 +23,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

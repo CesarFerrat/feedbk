@@ -13,7 +13,10 @@
       <% elsif current_user.has_role? :manager %>
         <div class="container">
           <div class="col-lg-8">
-          <a href="signup/manager" class="btn btn-default" role="button">Your Team</a>
+          <a href="/users/<%=current_user.id %>/teams" class="btn btn-default" role="button">Your Teams</a>
+          <br>
+          <br>
+          <a href="<%= new_user_team_path(current_user.id) %>" class="btn btn-success" role="button">+Add A Team</a>
           <br>
           <br>
           <a href="goals/index" class="btn btn-primary" role="button">Review Your Goals</a>
@@ -26,10 +29,10 @@
       <% else current_user.has_role? :company_leader %>
         <div class="container">
           <div class="col-lg-8">
-          <a href="signup/employee" class="btn btn-default" role="button">+Add Managers</a>
+          <a href="signup/manager" class="btn btn-success" role="button">+Add Managers</a>
           <br>
           <br>
-          <a href="signup/manager" class="btn btn-primary" role="button">See All Team Members</a>
+          <a href="signup/manager" class="btn btn-primary" role="button">See All Team/Members</a>
           <br>
           <br>
           <a href="" class="btn btn-info" role="button">Edit Your Profile</a>
