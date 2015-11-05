@@ -71,7 +71,21 @@ class TeamsController < ApplicationController
   def add_member
       @user = current_user
       @team = Team.find_by(:id => params[:team_id])
-   end
+  end
+
+  def invitation_form
+  end
+
+
+  def organization
+    @company = current_user.company
+    @company_members = User.where(:company_id => "@company")
+    @managers = @company_members.with_role(:manager)
+    @user = User.find_by(:id => params[:user_id])
+    @teams = @user.teams
+    @team = Team.find_by(:id => params[:team_id])
+    @team_members = @team.users
+  end
 
 
 

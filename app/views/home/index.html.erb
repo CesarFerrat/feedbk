@@ -29,10 +29,10 @@
       <% else current_user.has_role? :company_leader %>
         <div class="container">
           <div class="col-lg-8">
-          <a href="signup/manager" class="btn btn-success" role="button">+Add Managers</a>
+          <a href="/home/invitation_form" class="btn btn-success" role="button">+Add Managers</a>
           <br>
           <br>
-          <a href="signup/manager" class="btn btn-primary" role="button">See All Team/Members</a>
+          <a href="/users/:user_id/organization" class="btn btn-primary" role="button">See All Team/Members</a>
           <br>
           <br>
           <a href="" class="btn btn-info" role="button">Edit Your Profile</a>

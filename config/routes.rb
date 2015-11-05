@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'home/index'
+
+get 'home/index'
+get "/users/:user_id/teams"   => "teams#index"
+get "/users/:user_id/teams/:team_id/add_member"   => "teams#add_member"
+get "/users/:user_id/send_goal"   => "users#send_goal"
+get "/home/invitation_form" => "home#invitation_form"
+get "/home/send_goal" => "home#send_goal"
+get "/users/:user_id/organization" => "teams#organization"
 
   resources :users do 
     resources :goals do 
@@ -7,9 +14,6 @@ Rails.application.routes.draw do
     end 
   end
 
-
-get   "/users/:user_id/teams"   => "teams#index"
-get   "/users/:user_id/teams/:team_id/add_member"   => "teams#add_member"
 
   resources :users do
     resources :teams

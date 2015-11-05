@@ -1,0 +1,42 @@
+<% if defined?(Devise) %>
+   <% if user_signed_in? %>
+      <% if current_user.id == @user.id %>
+        <div class="container">
+          <div class="col-lg-8">
+          <a href="goals/index" class="btn btn-primary" role="button">Review Your Goals</a>
+          <br>
+          <br>
+          <a href="/users/<%=current_user.id%>/send_goal" class="btn btn-success" role="button">+Set A New Goal For Yourself</a>
+          <br>
+          <br>
+          <a href="" class="btn btn-info" role="button">Edit Your Profile</a>
+          </div>
+        </div>
+
+      <% elsif current_user.has_role? :manager %>
+          <div class="container">
+          <div class="col-lg-8">
+          <a href="goals/index" class="btn btn-primary" role="button">Review Your Employee's Goals</a>
+          <br>
+          <br>
+          <a href="/users/<%=@user.id%>/send_goal" class="btn btn-success" role="button">+Send A New Goal To Employee</a>
+          <br>
+          <br>
+          <a href="" class="btn btn-info" role="button">View Employee's Profile</a>
+          </div>
+        </div>
+
+      <% elsif current_user.has_role? :company_leader %>
+        <div class="container">
+          <div class="col-lg-8">
+          <a href="goals/index" class="btn btn-default" role="button">Review Your Employee's Goals</a>
+          <br>
+          <br>
+          <a href="" class="btn btn-info" role="button">View Employee's Profile</a>
+          </div>
+        </div>
+
+      <% end %>
+
+   <% end %>
+<% end %>
